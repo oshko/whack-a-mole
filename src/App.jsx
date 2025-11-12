@@ -1,10 +1,10 @@
-import { useState } from "react";
 import Field from "./Field";
 import GameControl from "./GameControl.jsx";
 import StartGame from "./StartGame.jsx";
+import { useGame } from "./GameContext.jsx";
 
 export default function App() {
-  const [playing, setPlaying] = useState(false);
+  const { playing } = useGame();
 
   if (playing) {
     return (
@@ -15,5 +15,5 @@ export default function App() {
     );
   }
 
-  return <StartGame playing={playing} setPlaying={setPlaying} />;
+  return <StartGame />;
 }
